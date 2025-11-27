@@ -250,6 +250,124 @@ body {
     line-height: 1.6;
 }
 
+/* Gallery Slider */
+.gallery {
+    margin-top: 60px;
+    text-align: center;
+}
+
+.gallery h2{
+    font-family: 'Montserrat', Arial, sans-serif;
+    font-size: 32px;
+    font-weight: 700;
+    color: #333333;
+    margin-bottom: 10px;
+}
+.gallery p{
+    font-family: 'Montserrat', Arial, sans-serif;
+    font-size: 18px;
+    font-weight: 400;
+    color: #555555;
+    line-height: 1.6;
+    margin-bottom: 30px;
+}
+
+.slider {
+  position: relative;
+  max-width: 100%;
+  margin: 0 auto;
+  overflow: hidden;
+  border-radius: 8px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+}
+
+.slides {
+  display: flex;
+  transition: transform 0.5s ease;
+}
+
+.slides img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+.prev, .next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  font-size: 18px;
+  border-radius: 50%;
+  z-index: 1;
+}
+
+.prev {
+  left: 10px;
+}
+
+.next {
+  right: 10px;
+}
+
+.prev:hover, .next:hover {
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+/* JP Images Slider */
+.jp{
+  margin-top: 60px;
+}
+.jp-images .slider {
+  position: relative;
+  max-width: 100%;
+  margin: 0 auto;
+  overflow: hidden;
+  border-radius: 8px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+}
+
+.jp-images .slides {
+  display: flex;
+  transition: transform 0.5s ease;
+}
+
+.jp-images .slides img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+.jp-images .prev, .jp-images .next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  font-size: 18px;
+  border-radius: 50%;
+  z-index: 1;
+}
+
+.jp-images .prev {
+  left: 10px;
+}
+
+.jp-images .next {
+  right: 10px;
+}
+
+.jp-images .prev:hover, .jp-images .next:hover {
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
 /* Contact Section */
 .Contact {
     display: flex;
@@ -377,6 +495,19 @@ body {
     text-align: center;
   }
 
+  .gallery h2 {
+    font-size: 24px;
+  }
+
+  .gallery p {
+    font-size: 16px;
+    text-align: center;
+  }
+
+  .joyful-praise h2 {
+    font-size: 24px;
+  }
+
   .activities-list {
     grid-template-columns: 1fr;
     gap: 20px;
@@ -401,5 +532,21 @@ body {
   .upcoming-activites img {
     max-width: 90vw;
     height: auto;
+  }
+
+  .slider {
+    max-width: 90%;
+  }
+  .prev, .next {
+    padding: 8px;
+    font-size: 16px;
+  }
+
+  .jp-images .slider {
+    max-width: 90%;
+  }
+  .jp-images .prev, .jp-images .next {
+    padding: 8px;
+    font-size: 16px;
   }
 }

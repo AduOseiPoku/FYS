@@ -101,8 +101,45 @@
             <p>She is a member of the Counseling Team.</p>
       </section>
 
-    <!-- Upcoming Activities -->
-
+    <!-- Gallery Section -->
+    <section class="gallery">
+      <div class="slider">
+        <h2>Gallery</h2>
+        <p>We believe faith isn't meant to stay inside four walls.</p>
+        <p>This gallery showcases our history of going out into the world</p>
+        <p>This collection highlights the adventures that have been to as a church</p>
+        <div class="slides">
+          <img src="assets/trip1.jpeg" alt="Slide 1">
+          <img src="assets/trip2.jpeg" alt="Slide 2">
+          <img src="assets/trip3.jpeg" alt="Slide 3">
+          <img src="assets/trip4.jpeg" alt="Slide 4">
+          <img src="assets/trip5.jpeg" alt="Slide 5">
+          <img src="assets/trip6.jpeg" alt="Slide 6">
+          <img src="assets/trip7.jpeg" alt="Slide 7">
+          <img src="assets/trip8.jpeg" alt="Slide 8">
+          <img src="assets/trip9.jpeg" alt="Slide 9">
+          <img src="assets/trip10.jpeg" alt="Slide 10">
+          <!-- Add more images as needed -->
+        </div>
+      </div>
+      <div class="jp">
+        <div class="joyful-praise">
+            <h2>Joyful Praise Singing Ministry</h2>
+            <p>We are a dynamic, Spirit-led team with a mission to set the atmosphere for authentic worship</p>
+            <p>Through a blend of contemporary praise and timeless hymns, we strive to lead the congregation into the deeper presence of the Lord.</p>
+        </div>
+        <div class="jp-images">
+            <div class="slider">
+            <div class="slides">
+                <img src="assets/jp1.jpeg" alt="">
+                <img src="assets/jp2.jpeg" alt="">
+                <img src="assets/jp3.jpeg" alt="">
+                <img src="assets/jp4.jpeg" alt="">
+            </div>
+            </div>
+        </div>
+      <div>
+    </section>
 
      <!-- Upcoming Activities -->
     <section class="upcoming-activites">
@@ -134,5 +171,83 @@
     <footer class="footer">
         <p>&copy; 2025 Freeman Youth Service. All rights reserved.</p>
     </footer>
+
+    <script>
+      // Gallery Slider
+      let galleryCurrentSlide = 0;
+      const gallerySlides = document.querySelector('.gallery .slides');
+      const galleryTotalSlides = gallerySlides ? gallerySlides.children.length : 0;
+      let galleryStartX = 0;
+      let galleryEndX = 0;
+
+      function changeSlide(direction) {
+        if (galleryTotalSlides > 0) {
+          galleryCurrentSlide = (galleryCurrentSlide + direction + galleryTotalSlides) % galleryTotalSlides;
+          gallerySlides.style.transform = `translateX(-${galleryCurrentSlide * 100}%)`;
+        }
+      }
+
+      // Touch events for gallery mobile swipe
+      if (gallerySlides) {
+        gallerySlides.addEventListener('touchstart', (e) => {
+          galleryStartX = e.touches[0].clientX;
+        });
+
+        gallerySlides.addEventListener('touchend', (e) => {
+          galleryEndX = e.changedTouches[0].clientX;
+          const diffX = galleryStartX - galleryEndX;
+          if (Math.abs(diffX) > 50) {
+            if (diffX > 0) {
+              changeSlide(1);
+            } else {
+              changeSlide(-1);
+            }
+          }
+        });
+      }
+
+      // Auto-slide for gallery every 3 seconds
+      if (galleryTotalSlides > 1) {
+        setInterval(() => changeSlide(1), 3000);
+      }
+
+      // JP Images Slider
+      let jpCurrentSlide = 0;
+      const jpSlides = document.querySelector('.jp-images .slides');
+      const jpTotalSlides = jpSlides ? jpSlides.children.length : 0;
+      let jpStartX = 0;
+      let jpEndX = 0;
+
+      function changeJPSlide(direction) {
+        if (jpTotalSlides > 0) {
+          jpCurrentSlide = (jpCurrentSlide + direction + jpTotalSlides) % jpTotalSlides;
+          jpSlides.style.transform = `translateX(-${jpCurrentSlide * 100}%)`;
+        }
+      }
+
+      // Touch events for jp mobile swipe
+      if (jpSlides) {
+        jpSlides.addEventListener('touchstart', (e) => {
+          jpStartX = e.touches[0].clientX;
+        });
+
+        jpSlides.addEventListener('touchend', (e) => {
+          jpEndX = e.changedTouches[0].clientX;
+          const diffX = jpStartX - jpEndX;
+          if (Math.abs(diffX) > 50) {
+            if (diffX > 0) {
+              changeJPSlide(1);
+            } else {
+              changeJPSlide(-1);
+            }
+          }
+        });
+      }
+
+      // Auto-slide for jp every 3 seconds
+      if (jpTotalSlides > 1) {
+        setInterval(() => changeJPSlide(1), 3000);
+      }
+    </script>
 </body>
 </html>
